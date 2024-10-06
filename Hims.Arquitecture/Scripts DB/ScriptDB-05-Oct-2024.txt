@@ -1,0 +1,51 @@
+-- Base de datos
+CREATE DATABASE HIMS;
+GO
+
+USE HIMS;
+GO
+
+-- Clientes
+CREATE TABLE Clientes (
+    ClienteId INT PRIMARY KEY IDENTITY(1,1),     -- Clave primaria autoincremental
+    Nombre NVARCHAR(100) NOT NULL,               -- Nombre del cliente
+    Apellido NVARCHAR(100) NOT NULL,             -- Apellido del cliente
+    DNI NVARCHAR(50) NOT NULL,                   -- Documento Nacional de Identidad
+    Email NVARCHAR(255) NOT NULL,                -- Correo electrónico
+    Telefono NVARCHAR(20),                       -- Teléfono
+    Direccion NVARCHAR(255),                     -- Dirección física
+    CodigoPostal NVARCHAR(10),                   -- Código postal
+    NumeroCliente INT NOT NULL,                  -- Número de cliente (numérico)
+    Genero NVARCHAR(20),                         -- Género (Hombre, Mujer, Otro)
+    Cumpleaños NVARCHAR(10),                     -- Fecha de nacimiento (texto)
+    Grupos NVARCHAR(100),                        -- Grupos a los que pertenece el cliente
+    App NVARCHAR(100),                           -- App asociada al cliente
+    CIF_NIF NVARCHAR(50),                        -- CIF/NIF (Identificación fiscal)
+    RazonSocial NVARCHAR(255)                    -- Razón social para empresas
+);
+GO
+
+-- Registros test Clientes
+INSERT INTO Clientes (Nombre, Apellido, DNI, Email, Telefono, Direccion, CodigoPostal, NumeroCliente, Genero, Cumpleaños, Grupos, App, CIF_NIF, RazonSocial)
+VALUES 
+('Juan', 'Pérez', '12345678A', 'juan.perez@example.com', '555-1234', 'Calle Falsa 123', '28001', 1001, 'Masculino', '1990-05-15', 'Grupo A', 'App1', 'B12345678', 'Empresa A'),
+('Ana', 'García', '87654321B', 'ana.garcia@example.com', '555-5678', 'Avenida Siempreviva 456', '28002', 1002, 'Femenino', '1985-10-23', 'Grupo B', 'App2', 'B87654321', 'Empresa B'),
+('Pedro', 'López', '12398745C', 'pedro.lopez@example.com', '555-9876', 'Calle Luna 789', '28003', 1003, 'Masculino', '1992-03-10', 'Grupo C', 'App3', 'C12398745', 'Empresa C'),
+('María', 'Martínez', '43219876D', 'maria.martinez@example.com', '555-4321', 'Plaza Sol 101', '28004', 1004, 'Femenino', '1991-07-30', 'Grupo A', 'App1', 'D43219876', 'Empresa D'),
+('Luis', 'Fernández', '11112222E', 'luis.fernandez@example.com', '555-2222', 'Calle Viento 202', '28005', 1005, 'Masculino', '1989-12-17', 'Grupo B', 'App2', 'E11112222', 'Empresa E'),
+('Laura', 'Gómez', '22223333F', 'laura.gomez@example.com', '555-3333', 'Calle Mar 303', '28006', 1006, 'Femenino', '1993-08-05', 'Grupo C', 'App3', 'F22223333', 'Empresa F'),
+('Carlos', 'Ruiz', '33334444G', 'carlos.ruiz@example.com', '555-4444', 'Calle Nieve 404', '28007', 1007, 'Masculino', '1994-01-22', 'Grupo A', 'App1', 'G33334444', 'Empresa G'),
+('Elena', 'Díaz', '44445555H', 'elena.diaz@example.com', '555-5555', 'Avenida Estrella 505', '28008', 1008, 'Femenino', '1988-11-11', 'Grupo B', 'App2', 'H44445555', 'Empresa H'),
+('Javier', 'Moreno', '55556666I', 'javier.moreno@example.com', '555-6666', 'Calle Río 606', '28009', 1009, 'Masculino', '1995-09-09', 'Grupo C', 'App3', 'I55556666', 'Empresa I'),
+('Sara', 'Ramírez', '66667777J', 'sara.ramirez@example.com', '555-7777', 'Calle Lago 707', '28010', 1010, 'Femenino', '1990-02-14', 'Grupo A', 'App1', 'J66667777', 'Empresa J'),
+('David', 'Hernández', '77778888K', 'david.hernandez@example.com', '555-8888', 'Avenida Tierra 808', '28011', 1011, 'Masculino', '1987-04-25', 'Grupo B', 'App2', 'K77778888', 'Empresa K'),
+('Marta', 'Torres', '88889999L', 'marta.torres@example.com', '555-9999', 'Calle Cielo 909', '28012', 1012, 'Femenino', '1996-12-03', 'Grupo C', 'App3', 'L88889999', 'Empresa L'),
+('Andrés', 'Sánchez', '99990000M', 'andres.sanchez@example.com', '555-0000', 'Calle Bosque 1010', '28013', 1013, 'Masculino', '1991-06-12', 'Grupo A', 'App1', 'M99990000', 'Empresa M'),
+('Claudia', 'Ortiz', '00001111N', 'claudia.ortiz@example.com', '555-1111', 'Avenida Sol 1111', '28014', 1014, 'Femenino', '1992-09-21', 'Grupo B', 'App2', 'N00001111', 'Empresa N'),
+('Mario', 'Mendoza', '11112222O', 'mario.mendoza@example.com', '555-2222', 'Calle Lluvia 1212', '28015', 1015, 'Masculino', '1990-11-30', 'Grupo C', 'App3', 'O11112222', 'Empresa O'),
+('Natalia', 'Silva', '22223333P', 'natalia.silva@example.com', '555-3333', 'Calle Sol 1313', '28016', 1016, 'Femenino', '1994-03-05', 'Grupo A', 'App1', 'P22223333', 'Empresa P'),
+('Sergio', 'Paredes', '33334444Q', 'sergio.paredes@example.com', '555-4444', 'Avenida Norte 1414', '28017', 1017, 'Masculino', '1992-07-18', 'Grupo B', 'App2', 'Q33334444', 'Empresa Q'),
+('Lucía', 'Vega', '44445555R', 'lucia.vega@example.com', '555-5555', 'Calle Sur 1515', '28018', 1018, 'Femenino', '1995-12-08', 'Grupo C', 'App3', 'R44445555', 'Empresa R'),
+('Antonio', 'Castro', '55556666S', 'antonio.castro@example.com', '555-6666', 'Calle Este 1616', '28019', 1019, 'Masculino', '1989-05-19', 'Grupo A', 'App1', 'S55556666', 'Empresa S'),
+('Verónica', 'Navarro', '66667777T', 'veronica.navarro@example.com', '555-7777', 'Avenida Oeste 1717', '28020', 1020, 'Femenino', '1991-01-09', 'Grupo B', 'App2', 'T66667777', 'Empresa T');
+
