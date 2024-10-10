@@ -1,0 +1,111 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Cita";
+}
+
+<div class="background">
+    <div class="overlay">
+        <div class="form-container">
+            <h1>Agendar Cita</h1>
+            <form method="post" action="/Barberia/AgendarCita">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="Nombre" placeholder="Nombre" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="Apellido" placeholder="Apellido" required />
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-control" name="Telefono" placeholder="Teléfono" required />
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="Correo" placeholder="Correo" required />
+                </div>
+                <div class="form-group-inline">
+                    <input type="date" class="form-control" name="Fecha" required />
+                    <input type="time" class="form-control" name="Hora" required />
+                </div>
+                <button type="submit" class="btn btn-primary">Agendar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .background {
+        background-image: url('/images/fondo.jpg'); /* Coloca aquí la ruta de tu imagen de fondo */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Alinea el contenido al final (derecha) */
+        padding-right: 50px; /* Espaciado opcional desde el borde derecho */
+    }
+
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+        padding: 40px;
+        border-radius: 10px;
+        color: white;
+        width: 100%;
+        max-width: 500px; /* Aumenta el ancho máximo del formulario */
+        box-sizing: border-box;
+    }
+
+    .form-container {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #ffffff;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group-inline {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    input[type="text"], input[type="tel"], input[type="email"], input[type="date"], input[type="time"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    /* Ajusta el ancho de los elementos dentro del grupo inline */
+    .form-group-inline input[type="date"],
+    .form-group-inline input[type="time"] {
+        width: 50%; /* Divide el espacio entre fecha y hora */
+    }
+
+    button {
+        background-color: #000;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        width: 100%;
+    }
+
+        button:hover {
+            background-color: #333;
+        }
+</style>
