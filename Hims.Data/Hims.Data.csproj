@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hims.Arquitecture\Hims.Arquitecture.csproj" />
+  </ItemGroup>
+
 </Project>

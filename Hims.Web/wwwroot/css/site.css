@@ -18,5 +18,38 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 20px; /* Agrega padding si es necesario */
+    margin-bottom: 60px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; 
+    color: black;
+}
+
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.table {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.navbar .nav-link {
+    font-size: 1.6rem; /* Aqui use rem que se adapta mejor al dispositivo, usar rem en todo */
+    font-weight: 600; 
+}
+
+.navbar .navbar-brand {
+    font-size: 1.25rem; /* Buscar equivalencia de rem */
+    font-weight: 700;
+}
+
+    }
 }
