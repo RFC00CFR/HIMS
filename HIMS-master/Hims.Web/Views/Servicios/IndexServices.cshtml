@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Hims.Arquitecture.Models.Services>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="~/css/admin.css" />
+
+
+
+<div class="content-container">
+
+    <div class="container-fluid p-0">
+        <div class="table-container">
+
+            <div class="header-container">
+                <h1><i class="far fa-user"></i> Servicios</h1>
+                <div class="search-container">
+                    <input type="text" placeholder="Buscar" class="search-input">
+                    <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+
+            <p>
+                <a asp-action="Create" class="btn btn-dark">Nuevo Cliente</a>
+            </p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CorteCabello)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Afeitado)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ArregloBarba)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Tratamientos)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Paquetes)
+                        </th>
+                       <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CorteCabello)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Afeitado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ArregloBarba)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Tratamientos)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Paquetes)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ServiceId" class="btn btn-info btn-spacing">Edit</a>
+                                <a asp-action="Create" asp-route-id="@item.ServiceId" class="btn btn-warning btn-spacing">Create</a>
+                                <a asp-action="Delete" asp-route-id="@item.ServiceId" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Hims.Arquitecture.Models.Branches>
+
+
+@{
+    ViewData["Title"] = "Sucursal";
+}
+
+<link rel="stylesheet" href="~/css/admin.css" />
+
+
+
+<div class="content-container">
+
+    <div class="container-fluid p-0">
+        <div class="table-container">
+
+            <div class="header-container">
+                <h1><i class="far fa-user"></i> Sucursales</h1>
+                <div class="search-container">
+                    <input type="text" placeholder="Buscar" class="search-input">
+                    <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+
+            <p>
+                <a asp-action="Create" class="btn btn-dark">Nueva Sucursal</a>
+            </p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SucursalId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NombreSucursal)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.HorarioSucursal)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.UbicacionSucursal)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SucursalId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombreSucursal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HorarioSucursal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UbicacionSucursal)
+                            </td>
+
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.SucursalId" class="btn btn-info btn-spacing">Edit</a>
+                                <a asp-action="Details" asp-route-id="@item.SucursalId" class="btn btn-warning btn-spacing">Details</a>
+                                <a asp-action="Delete" asp-route-id="@item.SucursalId" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
