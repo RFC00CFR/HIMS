@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Hims.Arquitecture.Models.Cita>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="~/css/admin.css" />
+
+<div class="content-container">
+    <div class="container-fluid p-0">
+        <div class="table-container">
+            <div class="header-container">
+                <h1><i class="far fa-calendar-alt"></i> Citas</h1>
+                <form method="get" asp-action="Index" class="search-container">
+                    <input type="text" name="searchString" placeholder="Buscar por Cita ID" class="search-input">
+                    <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cita ID</th>
+                        <th>Nombre del Cliente</th>
+                        <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+                        <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                        <th>@Html.DisplayNameFor(model => model.Correo)</th>
+                        <th>Fecha de la cita</th>
+                        <th>Id Servicio</th>
+                        <th>@Html.DisplayNameFor(model => model.Estado)</th>
+                        <th>@Html.DisplayNameFor(model => model.Comentarios)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.CitaId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Correo)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FechaCita)</td>
+                            <td>@Html.DisplayFor(modelItem => item.IdServicio)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Comentarios)</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.CitaId" class="btn btn-info btn-spacing">Editar</a>
+                                <a asp-action="Details" asp-route-id="@item.CitaId" class="btn btn-warning btn-spacing">Informacion</a>
+                                <a asp-action="Delete" asp-route-id="@item.CitaId" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
