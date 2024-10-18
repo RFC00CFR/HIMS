@@ -1,0 +1,86 @@
+﻿/* Estilos agregados por Catalina al homepage */
+
+.carousel-item img {
+    object-fit: cover; /* Mantiene la proporción de las imágenes */
+    height: 1000px; /* Ajusta la altura del carrusel */
+}
+
+.carousel-image {
+    background-size: cover; /* Cubre todo el espacio del contenedor */
+    background-position: center; /* Centra la imagen */
+    height: 100%; /* Altura completa del contenedor del carrusel */
+    width: 100%; /* Ancho completo del contenedor del carrusel */
+}
+
+.servicio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribuye el espacio entre los servicios */
+    margin: 0 auto; /* Centra el contenedor */
+    max-width: 1200px; /* Ajusta el ancho máximo según sea necesario */
+}
+
+.servicio {
+    background-color: #fff; /* Color de fondo blanco para el servicio */
+    border: 1px solid #ddd; /* Borde alrededor del servicio */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 20px; /* Espaciado interno */
+    width: 30%; /* Ajusta el ancho de cada servicio a un 30% */
+    margin-bottom: 20px; /* Espacio entre las filas */
+    text-align: center; /* Centra el contenido */
+}
+
+    .servicio img {
+        width: 100%; /* Hace que la imagen ocupe todo el ancho del contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+        border-radius: 8px; /* Bordes redondeados para la imagen */
+    }
+
+.btn-agendar {
+    display: inline-block; /* Hace que el enlace se comporte como un botón */
+    padding: 10px 20px; /* Espaciado interno */
+    color: #fff; /* Color del texto */
+    background-color: #6f42c1; /* Color de fondo morado */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: left; /* Alinear texto a la izquierda */
+    text-decoration: none; /* Elimina el subrayado */
+    margin-top: 10px; /* Espacio entre el texto y el botón */
+}
+
+    .btn-agendar:hover {
+        background-color: #5a32a1; /* Color de fondo al pasar el mouse */
+    }
+
+.nuevas-sucursales {
+    background-image: url('/images/sucursal.jpg');
+    background-size: cover; /* Cubre toda la sección */
+    background-position: center; /* Centra la imagen */
+    padding: 50px; /* Espaciado interno */
+    color: white; /* Color del texto */
+    text-align: center; /* Centra el texto */
+}
+
+.nuevos-servicios {
+    background-image: url('/images/servicio.jpg');
+    background-size: cover; /* Cubre toda la sección */
+    background-position: center; /* Centra la imagen */
+    padding: 50px; /* Espaciado interno */
+    color: white; /* Color del texto */
+    text-align: center; /* Centra el texto */
+}
+
+button {
+    margin-top: 20px; /* Espaciado superior para el botón */
+    padding: 10px 20px; /* Espaciado interno para el botón */
+    background-color: #6f42c1; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+    button:hover {
+        background-color: #5a32a1; /* Color al pasar el mouse */
+    }
