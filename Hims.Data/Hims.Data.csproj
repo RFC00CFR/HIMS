@@ -7,6 +7,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.3" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\Hims.Arquitecture\Hims.Arquitecture.csproj" />
 	</ItemGroup>
 

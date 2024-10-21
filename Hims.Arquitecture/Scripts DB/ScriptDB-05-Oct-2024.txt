@@ -49,3 +49,31 @@ VALUES
 ('Antonio', 'Castro', '55556666S', 'antonio.castro@example.com', '555-6666', 'Calle Este 1616', '28019', 1019, 'Masculino', '1989-05-19', 'Grupo A', 'App1', 'S55556666', 'Empresa S'),
 ('Verónica', 'Navarro', '66667777T', 'veronica.navarro@example.com', '555-7777', 'Avenida Oeste 1717', '28020', 1020, 'Femenino', '1991-01-09', 'Grupo B', 'App2', 'T66667777', 'Empresa T');
 
+CREATE TABLE Servicios (
+    ServicioId INT PRIMARY KEY IDENTITY(1,1),   -- Clave primaria autoincremental
+    Nombre NVARCHAR(100) NOT NULL,              -- Nombre del servicio
+    Descripcion NVARCHAR(255),                  -- Descripción del servicio
+    Precio DECIMAL(10, 2) NOT NULL,             -- Precio del servicio
+    Duracion INT NOT NULL                       -- Duración del servicio en minutos
+);
+GO
+
+-- Registros test Servicios
+INSERT INTO Servicios (Nombre, Descripcion, Precio, Duracion)
+VALUES 
+('Corte de Cabello', 'Corte de cabello estándar', 20.00, 30),
+('Afeitado Clásico', 'Afeitado con navaja clásica', 15.00, 20),
+('Corte y Afeitado', 'Combo de corte de cabello y afeitado', 30.00, 45),
+('Corte Infantil', 'Corte de cabello para niños', 10.00, 25),
+('Barba y Bigote', 'Ajuste de barba y bigote', 18.00, 30);
+GO
+
+CREATE TABLE Citas (
+    CitaId INT PRIMARY KEY IDENTITY(1,1),       -- Clave primaria autoincremental
+    ClienteId INT FOREIGN KEY REFERENCES Clientes(ClienteId), -- Clave foránea hacia la tabla Clientes
+    ServicioId INT FOREIGN KEY REFERENCES Servicios(ServicioId), -- Clave foránea hacia la tabla Servicios
+    FechaCita DATETIME NOT NULL,                -- Fecha y hora de la cita
+    Estado NVARCHAR(50) DEFAULT 'Activa',       -- Estado de la cita (Activa, Cancelada)
+    Comentarios NVARCHAR(255)                   -- Comentarios o requerimientos especiales del cliente
+);
+GO

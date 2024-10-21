@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hims.Arquitecture.Models;
+using System.Drawing.Printing;
 
 namespace Hims.Web.Controllers
 {
@@ -19,8 +20,10 @@ namespace Hims.Web.Controllers
         }
 
         // GET: Citas
-        public async Task<IActionResult> Index(string searchString = null)
+        public async Task<IActionResult> Index(string searchString = null, int pageNumber = 1)
         {
+            int pageSize = 5; 
+
             var citas = from c in _context.Citas
                         select c;
 
@@ -37,8 +40,21 @@ namespace Hims.Web.Controllers
                 }
             }
 
-            return View(await citas.ToListAsync());
+            int totalRecords = await citas.CountAsync();
+
+            var paginatedCitas = await citas
+                                    .Skip((pageNumber - 1) * pageSize)
+                                    .Take(pageSize)
+                                    .ToListAsync();
+
+            int totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+
+            ViewBag.CurrentPage = pageNumber;
+            ViewBag.TotalPages = totalPages;
+
+            return View(paginatedCitas);
         }
+
 
 
         // GET: Citas/Details/5
